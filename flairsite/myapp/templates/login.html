@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css'%}">
     <style data-tag="reset-style-sheet">
       html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6 {  margin: 0;  padding: 0;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
     </style>
@@ -33,7 +35,7 @@
     </style>
     <link
       rel="shortcut icon"
-      href="/playground_assets/icon_citu.jpeg"
+      href="/static/playground_assets/icon_citu.jpeg"
       type="icon/png"
       sizes="32x32"
     />
@@ -42,11 +44,11 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
       data-tag="font"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="{% static './style.css'%}" />
   </head>
   <body>
     <div>
-      <link href="./login.css" rel="stylesheet" />
+      <link href="{% static './login.css'%}" rel="stylesheet" />
 
       <div class="login-container">
         <header data-role="Header" class="login-header">
@@ -55,7 +57,7 @@
               <a href="index.html" class="login-navlink">
                 <img
                   alt="image"
-                  src="public/playground_assets/wildcats%20flair%20logo-200h.png"
+                  src="/static/public/playground_assets/wildcats%20flair%20logo-200h.png"
                   class="login-image"
                 />
               </a>
@@ -137,7 +139,7 @@
             <div class="login-logo">
               <img
                 alt="image"
-                src="public/playground_assets/wildcats%20flair%20logo-200h.png"
+                src="/static/public/playground_assets/wildcats%20flair%20logo-200h.png"
                 class="login-image2"
               />
               <span class="login-text05">
