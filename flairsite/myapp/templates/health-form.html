@@ -62,8 +62,8 @@
             </div>
           </div>
           <div class="health-form-btn-group">
-            <button class="health-form-login button">Login</button>
-            <button class="health-form-register button">Register</button>
+            <span style="margin-right: 12px; color: #800000;">Hello, {{request.user}}</span>
+            <span><a href="{% url 'logout' %}" role="button" class="health-form-register button">Logout</a></span>
           </div>
           <div data-type="BurgerMenu" class="health-form-burger-menu">
             <svg viewBox="0 0 1024 1024" class="health-form-icon">
@@ -102,6 +102,8 @@
                   <span>Contact Us</span>
                 </span>
                 <span class="navigation-links-text3"><span></span></span>
+                
+
               </nav>
             </div>
             <div>

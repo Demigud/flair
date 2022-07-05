@@ -1,5 +1,16 @@
+from multiprocessing import context
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout
+
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from .forms import CreateUserForm
+
+from django.contrib.auth.decorators import login_required
+
+
 
 # Create your views here.
 
@@ -8,13 +19,49 @@ def home(request):
     return render(request, 'index.html')
 
 #Login
-def login(request):
-    return render(request, 'login.html')
+def userlogin(request):
+    if request.user.is_authenticated:
+        return redirect('healthform')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+
+            user = authenticate(request, username=username, password=password)
+            
+            if user is not None:
+                login(request, user)
+                return redirect('home')
+            else:
+                messages.info(request, 'Username or Password is incorrect')
+
+    context={}
+    return render(request, 'login.html', context)
 
 #Register
 def register(request):
-    return render(request, 'register.html')
+    if request.user.is_authenticated:
+        return redirect('healthform')
+    else:
+        form = CreateUserForm()
 
+        if request.method == 'POST':
+            form = CreateUserForm(request.POST)
+            if form.is_valid():
+                form.save()
+                user = form.cleaned_data.get('username')
+                messages.success(request, 'Account ' + user + ' was created succesfully!')
+
+                return redirect('login')
+
+    context = {'form': form}
+    return render(request, 'register.html', context)
+
+def logoutUser(request):
+	logout(request)
+	return redirect('login')
+
+@login_required(login_url='login')
 #HealthForm
 def healthform(request):
     return render(request, 'health-form.html')

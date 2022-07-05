@@ -4,12 +4,12 @@ from . import views
 
 
 urlpatterns = [
-    #Admin
-    
-    
+    #LOGIN,LOGOUT,REGISTER
+    path('login/', views.userlogin, name='login'),
+    path('register/', views.register, name='register'),
+    path('logout/', views.logoutUser, name='logout'),
+
     #ClientSide
     path('', views.home, name='home'),
-    path('login', views.login, name='login'),
-    path('register', views.register, name='register'),
     path('healthform', views.healthform, name='healthform'),
 ]
