@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import CreateUserForm
-
+from .forms import HealthForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -61,7 +61,16 @@ def logoutUser(request):
 	logout(request)
 	return redirect('login')
 
+#Need Login User Before Proceed
 @login_required(login_url='login')
 #HealthForm
 def healthform(request):
-    return render(request, 'health-form.html')
+    form = HealthForm()
+    if request.method == 'POST':
+        form = HealthForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+
+    context={'form':form}        
+    return render(request, 'health-form.html', context)
