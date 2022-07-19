@@ -80,7 +80,11 @@ WSGI_APPLICATION = 'flairsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'FlairDB',
+        'USER': 'root',
+        'PASSWORD':'',
+        'HOST':'localhost',
+        'PORT': '3306'
     }
 }
 

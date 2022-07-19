@@ -63,7 +63,7 @@ def logoutUser(request):
 
 #Need Login User Before Proceed
 @login_required(login_url='login')
-#HealthForm
+#HealthForm = CREATE
 def healthform(request):
     form = HealthForm()
     if request.method == 'POST':
@@ -74,3 +74,9 @@ def healthform(request):
 
     context={'form':form}        
     return render(request, 'health-form.html', context)
+
+@login_required(login_url='login')
+#Dashboard = UPDATE, DELETE
+def dashboard(request):
+    #To be continued
+    return render(request)
