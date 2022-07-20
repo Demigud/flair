@@ -12,4 +12,8 @@ urlpatterns = [
     #ClientSide
     path('', views.home, name='home'),
     path('healthform', views.healthform, name='healthform'),
+
+    #Dashboard
+    path('dashboard', views.dashboard, name='dashboard'),
+    path('submissions', views.submissions, name='submissions'),
 ]

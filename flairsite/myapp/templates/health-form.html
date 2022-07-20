@@ -138,14 +138,12 @@
           <span class="health-form-text01">
             Health and Travel History Disclosure Form
           </span>
+        <form method="POST" action="">
+          {% csrf_token %}
           <div class="health-form-container06">
             <span class="health-form-text02">Name</span>
           </div>
-          <input
-            type="text"
-            placeholder="placeholder"
-            class="health-form-textinput input"
-          />
+            {{form.name}}
           <div class="health-form-container07">
             <span class="health-form-text03">Email</span>
           </div>
@@ -153,38 +151,26 @@
             <div class="health-form-container09">
               <div class="health-form-container10"></div>
             </div>
-            <input
-              type="text"
-              placeholder="placeholder"
-              class="health-form-textinput1 input"
-            />
+              {{form.email}}
           </div>
           <div class="health-form-container11">
             <div class="health-form-container12">
               <span class="health-form-text04">Phone number</span>
             </div>
           </div>
-          <input
-            type="text"
-            placeholder="placeholder"
-            class="health-form-textinput2 input"
-          />
+             {{form.phonenumber}}
           <div class="health-form-container13">
             <span class="health-form-text05">Current Address</span>
           </div>
-          <div class="health-form-container14">
-            <input
-              type="text"
-              placeholder="placeholder"
-              class="health-form-textinput3 input"
-            />
+          <div class="health-form-container14" style="margin-bottom: 20px;">
+            {{form.address}}
           </div>
-          <span class="health-form-text06"><span>Temperature</span></span>
-          <input
-            type="text"
-            placeholder="placeholder"
-            class="health-form-textinput4 input"
-          />
+          <div class="health-form-container16">
+          <span class="health-form-text06">Temperature</span>
+          </div>
+          <div class="health-form-container17">
+            {{form.temperature}}
+          </div>
           <div class="health-form-container15">
             <span class="health-form-text08">
               <span>Travel within the last 2 week? (outside</span>
@@ -192,66 +178,45 @@
               <span>cebu) if YES, please specify where.</span>
             </span>
           </div>
-          <div class="health-form-container16"></div>
-          <div class="health-form-container17"></div>
           <div class="health-form-container18">
-            <div class="health-form-container19">
-              <span class="health-form-text12">YES</span>
-              <input
-                type="checkbox"
-                checked="true"
-                class="health-form-checkbox"
-              />
+            <div class="health-form-container19" style="margin-bottom: 20px">
+              {{form.choise1}}
             </div>
-            <div class="health-form-container20">
-              <span class="health-form-text13">NO</span>
-              <input
-                type="checkbox"
-                checked="true"
-                class="health-form-checkbox1"
-              />
+            <div class="health-form-container20" style="margin-bottom: 20px;">
+              
             </div>
           </div>
-          <input
-            type="text"
-            placeholder="placeholder"
-            class="health-form-textinput5 input"
-          />
+          <div style="flex: 0 0 auto; width:auto; display:flex; align-items:flex-start; justify-content:flex-start; margin-bottom: 20px">
+          {{form.travelhistory}}
+          </div>
           <span class="health-form-text14">
             <span>Vaccination Status</span>
           </span>
           <div class="health-form-container21">
-            <div class="health-form-container22">
-              <span class="health-form-text16">1st Dose</span>
-              <input
-                type="checkbox"
-                checked="true"
-                class="health-form-checkbox2"
-              />
+            <div class="health-form-container22" style="margin-bottom: 20px;">
+              {{form.choise2}}
             </div>
             <div class="health-form-container23">
-              <span class="health-form-text17">Fully Vaccinated</span>
-              <input
-                type="checkbox"
-                checked="true"
-                class="health-form-checkbox3"
-              />
+              
             </div>
           </div>
           <span class="health-form-text18">
-            <span>Are you currently experiencing any of the</span>
+            <span>Are you currently experiencing any Covid-19 symptoms?</span>
             <br />
-            <span>following?</span>
+            <span>Link: <a href="https://www.who.int/health-topics/coronavirus#tab=tab_3">Symptoms</a></span>
           </span>
-          <div class="health-form-container24">
-            <select class="health-form-select">
-              <option value="Headache">Headache</option>
-              <option value="Coughing">Coughing</option>
-              <option value="High Fever">High Fever</option>
-            </select>
+          <div class="health-form-container24" style="margin-top: 20px;">
+              {{form.choise3}}
           </div>
-          <button class="health-form-button button">SUBMIT</button>
+          <div style="flex: 0 0 auto; width:auto; display:flex; align-items:flex-start; justify-content:flex-start; margin-bottom: 5px; margin-top: 20px">
+            <span>Input Image</span>
+            </div>
+          <div style="flex: 0 0 auto; width:auto; display:flex; align-items:flex-start; justify-content:flex-start; margin-bottom: 20px">
+              {{form.img}}
+            </div>
+          <button class="health-form-button button" type="submit" value="Pass Form">SUBMIT</button>
         </div>
+      </form>
         <footer class="health-form-footer">
           <div class="health-form-container25">
             <div class="health-form-logo">

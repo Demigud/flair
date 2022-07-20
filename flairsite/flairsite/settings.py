@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+
 ]
 
 CRISPY_TEMPLATE_PACK = 'uni_form'
@@ -80,7 +81,7 @@ WSGI_APPLICATION = 'flairsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'FlairDB',
+        'NAME': BASE_DIR /'db.sqlite3',
         'USER': 'root',
         'PASSWORD':'',
         'HOST':'localhost',

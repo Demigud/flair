@@ -78,5 +78,9 @@ def healthform(request):
 @login_required(login_url='login')
 #Dashboard = UPDATE, DELETE
 def dashboard(request):
-    #To be continued
-    return render(request)
+
+    return render(request, 'dashboard.html')
+
+def submissions(request):
+
+    return render(request, 'submissions.html')
