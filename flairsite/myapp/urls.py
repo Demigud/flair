@@ -16,4 +16,6 @@ urlpatterns = [
     #Dashboard
     path('dashboard', views.dashboard, name='dashboard'),
     path('submissions', views.submissions, name='submissions'),
+    path('userlogs', views.userlogs, name='userlogs'),
+    path('livefeed', views.livefeed, name='livefeed'),
 ]

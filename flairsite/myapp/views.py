@@ -75,12 +75,22 @@ def healthform(request):
     context={'form':form}        
     return render(request, 'health-form.html', context)
 
-@login_required(login_url='login')
 #Dashboard = UPDATE, DELETE
 def dashboard(request):
 
     return render(request, 'dashboard.html')
 
+
 def submissions(request):
 
     return render(request, 'submissions.html')
+
+
+def userlogs(request):
+
+    return render(request, 'user-logs.html')
+
+
+def livefeed(request):
+
+    return render(request, 'live-feed.html')
