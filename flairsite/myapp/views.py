@@ -3,9 +3,9 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
-
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from .models import Health
 from .forms import CreateUserForm
 from .forms import HealthForm
 from django.contrib.auth.decorators import login_required
@@ -77,16 +77,41 @@ def healthform(request):
 
 #Dashboard = UPDATE, DELETE
 def dashboard(request):
-
     return render(request, 'dashboard.html')
 
 
 def submissions(request):
+    healthforms = Health.objects.all()
 
-    return render(request, 'submissions.html')
+    context = {'healthforms': healthforms}
+    return render(request, 'submissions.html', context)
 
+def subupdate(request, id):
+    health = Health.objects.get(id=id)
+    form = HealthForm(initial={'name': health.name, 'email': health.email, 'phonenumber': health.phonenumber, 'address': health.address, 'temperature': health.temperature, 'choise1': health.choise1, 'travelhistory': health.travelhistory, 'choise2': health.choise2, 'choise3': health.choise3,})
+    if request.method == 'POST':
+        form = HealthForm(request.POST, instance=health)
+        if form.is_valid():
+            try:
+                form.save()
+                model = form.instance
+                return redirect('submissions')
+            except Exception as e:
+                pass
 
-def userlogs(request):
+    context = {'form': form}
+    return render(request, 'sub-update.html', context)
+
+def subdelete(request, id):
+    health = Health.objects.get(id=id)
+    try:
+        health.delete()
+    except:
+        pass
+
+    return redirect('submissions')
+
+def userlogs(request,):
 
     return render(request, 'user-logs.html')
 

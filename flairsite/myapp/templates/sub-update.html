@@ -101,7 +101,8 @@
                 </div>
               </div>
               <nav
-                class="navigation-links-nav navigation-links-root-class-name21">
+                class="navigation-links-nav navigation-links-root-class-name21"
+              >
                 <a href="home.html" class="navigation-links-navlink">
                   <span>Home</span>
                 </a>
@@ -142,46 +143,14 @@
           </div>
         </header>
         <div class="submissions-container4"></div>
-        <div>
-          <!--LIST-->
           <div class="card-body">
-            <h4>Submission List</h4>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone Number</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">Temperature</th>
-                        <th scope="col">Choice 1</th>
-                        <th scope="col">Travel History</th>
-                        <th scope="col">Choice 2</th>
-                        <th scope="col">Choice 3</th>
-                        <th scope="col">Date & Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for health in healthforms %}
-                    <tr>
-                        <td>{{ health.name }}</td>
-                        <td>{{ health.email }}</td>
-                        <td>{{ health.phonenumber }}</td>
-                        <td>{{ health.address }}</td>
-                        <td>{{ health.temperature }}</td>
-                        <td>{{ health.choise1 }}</td>
-                        <td>{{ health.travelhistory }}</td>
-                        <td>{{ health.choise2 }}</td>
-                        <td>{{ health.choise3 }}</td>
-                        <td>{{ health.date_joined }}</td>
-                        <td><a type="button" class="btn btn-warning" href="sub-update/{{ health.id }}">Update</a>
-                            <a type="button" class="btn btn-danger" href="sub-delete/{{ health.id }}">Delete</a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <a type="button" class="btn btn-success" href="{% url 'healthform' %}">Create</a>
+            <h4>Update Submission</h4>
+            <form method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <a type="button" class="btn btn-danger" href="{% url 'submissions' %}">Cancel</a>
+                <button type="submit" class="btn btn-success">Update</button>
+            </form>
           </div>
         </div>
         <footer class="submissions-footer">
@@ -190,7 +159,8 @@
               <img
                 alt="image"
                 src="/static/public/playground_assets/wildcats%20flair%20logo-200h.png"
-                class="submissions-image2"/>
+                class="submissions-image2"
+              />
               <span class="submissions-text01">
                 <span>TEKNOY HEALTH DECLARATION</span>
                 <br />

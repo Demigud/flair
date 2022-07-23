@@ -15,7 +15,10 @@ urlpatterns = [
 
     #Dashboard
     path('dashboard', views.dashboard, name='dashboard'),
-    path('dashboard/submissions', views.submissions, name='submissions'),
-    path('dashboard/userlogs', views.userlogs, name='userlogs'),
-    path('dahsboard/livefeed', views.livefeed, name='livefeed'),
+    path('submissions', views.submissions, name='submissions'),
+    path('userlogs', views.userlogs, name='userlogs'),
+    path('livefeed', views.livefeed, name='livefeed'),
+    path('sub-update/<int:id>', views.subupdate, name='subupdate'),
+    path('sub-delete/<int:id>', views.subdelete, name='subdelete'),
+    
 ]
