@@ -70,7 +70,7 @@ def healthform(request):
         form = HealthForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('healthform')
 
     context={'form':form}        
     return render(request, 'health-form.html', context)

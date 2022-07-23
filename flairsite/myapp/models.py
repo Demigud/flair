@@ -14,7 +14,8 @@ class Health(models.Model):
     travelhistory = models.CharField(max_length=30, null=True)
     choise2 = models.BooleanField(null=True, choices=C2)
     choise3 = models.CharField(max_length=30, null=True)
-    img = models.ImageField(upload_to="image/", null=True)
+    #img = models.ImageField(upload_to="student_img") IMAGE INPUT PROBLEM
+    date_joined = models.DateTimeField(auto_now_add=True, null=True)
     
-    class Meta:
-        db_table="HealthForms"
+    def __str__(self):
+        return self.name
