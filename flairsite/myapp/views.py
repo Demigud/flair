@@ -112,8 +112,10 @@ def subdelete(request, id):
     return redirect('submissions')
 
 def userlogs(request,):
+    userforms = CreateUserForm
 
-    return render(request, 'user-logs.html')
+    context = {'userforms': userforms}
+    return render(request, 'user-logs.html', context)
 
 
 def livefeed(request):

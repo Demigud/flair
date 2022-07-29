@@ -131,7 +131,41 @@
           </div>
         </header>
         <div class="user-logs-container4"></div>
-        <div class="user-logs-container5"><h1>USER LOGS</h1></div>
+        <div>
+          <!--LIST-->
+          <div class="card-body">
+            <h4>Submission List</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Temperature</th>
+                        <th scope="col">Choice 1</th>
+                        <th scope="col">Travel History</th>
+                        <th scope="col">Choice 2</th>
+                        <th scope="col">Choice 3</th>
+                        <th scope="col">Date & Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in userforms %}
+                    <tr>
+                        <td>{{ user.name }}</td>
+                        <td>{{ health.email }}</td>
+                        <td>{{ health.password }}</td>
+                        <td>
+                            <a type="button" class="btn btn-danger" href="sub-delete/{{ health.id }}">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a type="button" class="btn btn-success" href="{% url 'healthform' %}">Create</a>
+          </div>
+        </div>
         <footer class="user-logs-footer">
           <div class="user-logs-container6">
             <div class="user-logs-logo">
