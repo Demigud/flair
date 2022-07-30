@@ -138,7 +138,7 @@
           <span class="health-form-text01">
             Health and Travel History Disclosure Form
           </span>
-        <form method="POST" action="">
+        <form enctype="multipart/form-data" method="POST" action="">
           {% csrf_token %}
           <div class="health-form-container06">
             <span class="health-form-text02">Name</span>
@@ -212,7 +212,7 @@
             <span>Input Image</span>
             </div>
           <div style="flex: 0 0 auto; width:auto; display:flex; align-items:flex-start; justify-content:flex-start; margin-bottom: 20px">
-             <!-- {{form.img}} -->
+              {{form.img}}
             </div>
             <input class="health-form-button button" type="submit" value="Submit" style="margin-bottom:22px">
           </form>

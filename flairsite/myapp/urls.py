@@ -14,11 +14,11 @@ urlpatterns = [
     path('healthform', views.healthform, name='healthform'),
 
     #Dashboard
-    path('dashboard', views.dashboard, name='dashboard'),
-    path('submissions', views.submissions, name='submissions'),
-    path('userlogs', views.userlogs, name='userlogs'),
-    path('livefeed', views.livefeed, name='livefeed'),
-    path('sub-delete/<int:id>', views.subdelete, name='subdelete'),
-    path('user-delete/<int:id>', views.userdelete, name='userdelete'),
+    path('admin/dashboard', views.dashboard, name='dashboard'),
+    path('admin/submissions', views.submissions, name='submissions'),
+    path('admin/userlogs', views.userlogs, name='userlogs'),
+    path('admin/livefeed', views.livefeed, name='livefeed'),
+    path('admin/sub-delete/<int:id>', views.subdelete, name='subdelete'),
+    path('admin/user-delete/<int:id>', views.userdelete, name='userdelete'),
     
 ]

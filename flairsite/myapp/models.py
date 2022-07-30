@@ -14,7 +14,7 @@ class Health(models.Model):
     travelhistory = models.CharField(max_length=30, null=True)
     choise2 = models.BooleanField(null=True, choices=C2)
     choise3 = models.CharField(max_length=30, null=True)
-    #img = models.ImageField(upload_to="student_img") IMAGE INPUT PROBLEM
+    img = models.ImageField(upload_to="student_img", null=True)
     date_joined = models.DateTimeField(auto_now_add=True, null=True)
     
     def __str__(self):

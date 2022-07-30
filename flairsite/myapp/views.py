@@ -9,12 +9,14 @@ from .forms import HealthForm
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import user_passes_test
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 
 
 # Create your views here.
 
 #Home
+@login_required(login_url='login')
 def home(request):
     return render(request, 'index.html')
 
@@ -67,7 +69,7 @@ def logoutUser(request):
 def healthform(request):
     form = HealthForm()
     if request.method == 'POST':
-        form = HealthForm(request.POST)
+        form = HealthForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('healthform')

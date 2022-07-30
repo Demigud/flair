@@ -81,12 +81,10 @@
           </div>
           <div class="home-btn-group">
             <!--LOGIN & SIGNUP BUTTON-->
-            <form action="{% url 'login'%}">
-              <button class="home-login button" type="submit">Login</button>
-            </form>
-            <form action="{% url 'register'%}">
-              <button class="home-register button" type="submit">Register</button>
-            </form>
+            <div class="health-form-btn-group">
+              <span style="margin-right: 12px; color: #800000;">Hello, {{request.user}}</span>
+              <span><a href="{% url 'logout' %}" role="button" class="button" style="color: gold; background-color: #800000;">Logout</a></span>
+            </div>
           </div>
           <div data-type="BurgerMenu" class="home-burger-menu">
             <svg viewBox="0 0 1024 1024" class="home-icon">
