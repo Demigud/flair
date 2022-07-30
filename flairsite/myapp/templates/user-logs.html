@@ -47,6 +47,21 @@
       data-tag="font"
     />
     <link rel="stylesheet" href="{% static './style.css'%}" />
+
+     <!-- CSS only -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+ <!-- JS, Popper.js, and jQuery -->
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+     crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+     crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+     crossorigin="anonymous"></script>
   </head>
   <body>
     <div>
@@ -56,7 +71,7 @@
         <header data-role="Header" class="user-logs-header">
           <div class="user-logs-container1">
             <div class="user-logs-container2">
-              <a href="dashboard.html" class="user-logs-navlink">
+              <a href="dashboard" class="user-logs-navlink">
                 <img
                   alt="image"
                   src="/static/public/playground_assets/wildcats%20flair%20logo-200h.png"
@@ -134,36 +149,29 @@
         <div>
           <!--LIST-->
           <div class="card-body">
-            <h4>Submission List</h4>
+            <h4>User List</h4>
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone Number</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">Temperature</th>
-                        <th scope="col">Choice 1</th>
-                        <th scope="col">Travel History</th>
-                        <th scope="col">Choice 2</th>
-                        <th scope="col">Choice 3</th>
-                        <th scope="col">Date & Time</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email Address</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for user in userforms %}
                     <tr>
-                        <td>{{ user.name }}</td>
-                        <td>{{ health.email }}</td>
-                        <td>{{ health.password }}</td>
+                        <td>{{user.id}}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
                         <td>
-                            <a type="button" class="btn btn-danger" href="sub-delete/{{ health.id }}">Delete</a>
+                            <a type="button" class="btn btn-danger" href="user-delete/{{ user.id }}">Delete</a>
                         </td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
-            <a type="button" class="btn btn-success" href="{% url 'healthform' %}">Create</a>
+            <a type="button" class="btn btn-success" href="{% url 'register' %}">Create</a>
           </div>
         </div>
         <footer class="user-logs-footer">

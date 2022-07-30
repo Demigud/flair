@@ -1,14 +1,14 @@
 from multiprocessing import context
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Health
 from .forms import CreateUserForm
 from .forms import HealthForm
+from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import user_passes_test
 
 
 
@@ -76,32 +76,18 @@ def healthform(request):
     return render(request, 'health-form.html', context)
 
 #Dashboard = UPDATE, DELETE
+@user_passes_test(lambda user: user.is_staff, login_url='login')
 def dashboard(request):
     return render(request, 'dashboard.html')
 
-
+@user_passes_test(lambda user: user.is_staff, login_url='login')
 def submissions(request):
     healthforms = Health.objects.all()
 
     context = {'healthforms': healthforms}
     return render(request, 'submissions.html', context)
 
-def subupdate(request, id):
-    health = Health.objects.get(id=id)
-    form = HealthForm(initial={'name': health.name, 'email': health.email, 'phonenumber': health.phonenumber, 'address': health.address, 'temperature': health.temperature, 'choise1': health.choise1, 'travelhistory': health.travelhistory, 'choise2': health.choise2, 'choise3': health.choise3,})
-    if request.method == 'POST':
-        form = HealthForm(request.POST, instance=health)
-        if form.is_valid():
-            try:
-                form.save()
-                model = form.instance
-                return redirect('submissions')
-            except Exception as e:
-                pass
-
-    context = {'form': form}
-    return render(request, 'sub-update.html', context)
-
+@user_passes_test(lambda user: user.is_staff, login_url='login')
 def subdelete(request, id):
     health = Health.objects.get(id=id)
     try:
@@ -111,13 +97,24 @@ def subdelete(request, id):
 
     return redirect('submissions')
 
-def userlogs(request,):
-    userforms = CreateUserForm
+@user_passes_test(lambda user: user.is_staff, login_url='login')
+def userlogs(request):
+    userforms = get_user_model().objects.all()
 
     context = {'userforms': userforms}
     return render(request, 'user-logs.html', context)
 
+@user_passes_test(lambda user: user.is_staff, login_url='login')
+def userdelete(request, id):
+    userform = get_user_model().objects.get(id=id)
+    try:
+        userform.delete()
+    except:
+        pass
 
+    return redirect('userlogs')
+
+@user_passes_test(lambda user: user.is_staff, login_url='login')
 def livefeed(request):
 
     return render(request, 'live-feed.html')

@@ -55,7 +55,7 @@
         <header data-role="Header" class="dashboard-header">
           <div class="dashboard-container01">
             <div class="dashboard-container02">
-              <a href="dashboard.html" class="dashboard-navlink">
+              <a href="dashboard" class="dashboard-navlink">
                 <img
                   alt="image"
                   src="/static/public/playground_assets/wildcats%20flair%20logo-200h.png"
@@ -63,6 +63,10 @@
                 />
               </a>
             </div>
+          </div>
+          <div class="health-form-btn-group">
+            <span style="margin-right: 12px; color: #800000;">Hello, {{request.user}}</span>
+            <span><a href="{% url 'logout' %}" role="button" class="button" style="color: gold; background-color: #800000;">Logout</a></span>
           </div>
           <div data-type="BurgerMenu" class="dashboard-burger-menu">
             <svg viewBox="0 0 1024 1024" class="dashboard-icon">
@@ -158,7 +162,7 @@
                     commodo nec.
                   </span>
                   <span class="dashboard-text05">USER LOGS</span>
-                  <button class="button">Button</button>
+                  <a type="button" class="button" href="{% url 'userlogs' %}">Click Here</a>
                 </div>
               </div>
               <div class="dashboard-testimonial-card1">
@@ -179,7 +183,7 @@
                   </span>
                   <span class="dashboard-text07">LIVE FEED</span>
                 </div>
-                <button class="button">Button</button>
+                <a type="button" class="button" href="{% url 'livefeed' %}">Click Here</a>
               </div>
               <div class="dashboard-testimonial-card2">
                 <svg
@@ -199,7 +203,7 @@
                   </span>
                   <span class="dashboard-text09">SUBMISSIONS</span>
                 </div>
-                <button class="button">Button</button>
+                <a type="button" class="button" href="{% url 'submissions' %}">Click Here</a>
               </div>
             </div>
           </div>

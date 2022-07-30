@@ -18,7 +18,7 @@ urlpatterns = [
     path('submissions', views.submissions, name='submissions'),
     path('userlogs', views.userlogs, name='userlogs'),
     path('livefeed', views.livefeed, name='livefeed'),
-    path('sub-update/<int:id>', views.subupdate, name='subupdate'),
     path('sub-delete/<int:id>', views.subdelete, name='subdelete'),
+    path('user-delete/<int:id>', views.userdelete, name='userdelete'),
     
 ]
