@@ -6,7 +6,10 @@ import os
 
 #import images
 
-path = "C:\\Users\\pc\\Documents\\GitHub\\flair\\flairsite\\face_recog\\images\\actual"
+# path = "C:\\Users\\franz\\OneDrive\\Documents\\flair\\flairsite\\face_recog\\images\\actual"
+path = "C:\\Users\\franz\\OneDrive\\Documents\\flair\\flairsite\\media\\student_img"
+
+
 
 
 
