@@ -52,7 +52,7 @@
         <header data-role="Header" class="health-form-header">
           <div class="health-form-container01">
             <div class="health-form-container02">
-              <a href="index.html" class="health-form-navlink">
+              <a href="{% url 'home' %}" class="health-form-navlink">
                 <img
                   alt="image"
                   src="/static/public/playground_assets/wildcats%20flair%20logo-200h.png"
@@ -132,8 +132,9 @@
             </div>
           </div>
         </header>
-        <div class="health-form-container04"></div>
-        <div class="health-form-container05">
+        <div class="health-form-container04" style="background-color: #ffd700;"></div>
+        <div class="health-form1" style="width: 100%; height: 1200px; display: flex; background:#800000;">
+        <div class="health-form-container05" style="width: 600px; height: 1150px; background: rgba(0,20,10,0.5); color: #fff; left: 30%; margin-top: 20px;">
           <h1>Cebu Institute of Technology University</h1>
           <span class="health-form-text01">
             Health and Travel History Disclosure Form
@@ -214,8 +215,9 @@
           <div style="flex: 0 0 auto; width:auto; display:flex; align-items:flex-start; justify-content:flex-start; margin-bottom: 20px">
               {{form.img}}
             </div>
-            <input class="health-form-button button" type="submit" value="Submit" style="margin-bottom:22px">
+            <input class="health-form-button button" type="submit" value="Submit" style="margin-bottom:22px; color: #800000; background-color: gold;">
           </form>
+        </div>
         </div>
         <footer class="health-form-footer">
           <div class="health-form-container25">

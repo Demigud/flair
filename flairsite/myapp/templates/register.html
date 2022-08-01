@@ -23,8 +23,8 @@
     <style>
       .login_btn {
 			width: 100%;
-			background: #33ccff !important;
-			color: white !important;
+			background: #ffd700 !important;
+			color: #800000 !important;
 		}
 		.login_btn:focus {
 			box-shadow: none !important;
@@ -96,9 +96,7 @@
               </a>
             </div>
           </div>
-          <div class="register-btn-group">
-            <button class="register-login button">Login</button>
-          </div>
+          
           <div data-type="BurgerMenu" class="register-burger-menu">
             <svg viewBox="0 0 1024 1024" class="register-icon">
               <path
@@ -161,8 +159,9 @@
             </div>
           </div>
         </header>
-        <div class="register-container04"></div>
-        <div class="register-container05">
+        <div class="register-container04" style="background-color: #ffd700"></div>
+        <div class="login-cont1" style="background-color: #800000; width: 100%; height: 450px; display: flex;">
+        <div class="register-container05" style="background-color:rgba(0,20,10,0.5); color:#fff; width: 320px; height: 400px; left: 50%; right: 50%; margin-left: 525px; margin-top: 20px;">
           <!--REGISTRATION FORM-->
           <h1 style="margin-bottom: 33px;">Register</h1>
           <form method="POST" action="">
@@ -195,10 +194,11 @@
 				   		<div class="d-flex justify-content-center mt-3 login_container">
 				 			<input class="btn login_btn" type="submit" value="Register Account" style="margin-bottom:22px">
 				   		</div>
-               Already have an account? <a href="{% url 'login' %}" class="ml-2" style="margin-bottom: 12px;">Login</a>
+               Already have an account? <a href="{% url 'login' %}" class="ml-2" style="margin-bottom: 20px;">Login</a>
 					</form>
-          {{form.errors}}
         </div>
+       </div>
+       {{form.errors}}
         <div class="mt-4">
         <footer class="register-footer">
           <div class="register-container08">

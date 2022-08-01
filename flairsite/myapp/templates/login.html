@@ -18,8 +18,8 @@
     <style>
       .login_btn {
 			width: 100%;
-			background: #33ccff !important;
-			color: white !important;
+			background: #ffd700 !important;
+			color: #800000 !important;
 		}
 		.login_btn:focus {
 			box-shadow: none !important;
@@ -101,9 +101,6 @@
           <div class="login-nav">
             <nav class="login-nav1"><span class="login-text"></span></nav>
           </div>
-          <div class="login-btn-group">
-            <button class="login-register button">Register</button>
-          </div>
           <div data-type="BurgerMenu" class="login-burger-menu">
             <svg viewBox="0 0 1024 1024" class="login-icon">
               <path
@@ -160,8 +157,9 @@
             </div>
           </div>
         </header>
-        <div class="login-container4"></div>
-        <div class="login-container5">
+        <div class="login-container4" style="background-color: #ffd700"></div>
+        <div class="login-cont" style="background-color: #800000; width: 100%; height: 450px; display: flex;">
+        <div class="login-container5" style="background-color:rgba(0,20,10,0.5); color:#fff; width: 320px; height: 400px; left: 50%; right: 50%; margin-left: 525px; margin-top: 20px;">
           <h1 style="margin-bottom:33px"><span>LOGIN</span></h1>
           <form method="POST" action="">
             {% csrf_token %}
@@ -184,6 +182,7 @@
                  Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
 					</form>
         </div>
+      </div>
         {% for message in messages %}
             <p id="messages">{{message}}</p>
         {% endfor %}

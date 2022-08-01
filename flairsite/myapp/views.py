@@ -120,3 +120,14 @@ def userdelete(request, id):
 def livefeed(request):
 
     return render(request, 'live-feed.html')
+
+def testform(request):
+    form = HealthForm()
+    if request.method == 'POST':
+        form = HealthForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('healthform')
+
+    context={'form':form}        
+    return render(request, 'test-form.html', context)
