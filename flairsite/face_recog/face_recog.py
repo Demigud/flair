@@ -5,7 +5,11 @@ import numpy as np
 import os
 
 #import images
+
 path = "C:\\Users\\pc\\Documents\\GitHub\\flair\\flairsite\\face_recog\\images\\actual"
+
+
+
 # list images
 images = []
 classNames = []
