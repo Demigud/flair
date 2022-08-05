@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/0f4fb40c-9f86-482c-9b3d-b706c84f37b8/microsoft.web/sites/subscriptions/0f4fb40c-9f86-482c-9b3d-b706c84f37b8/resourceGroups/wildcats-flair/providers/Microsoft.Web/sites/flair",
+    "appService.deploySubpath": "."
+}
