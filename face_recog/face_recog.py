@@ -2,12 +2,12 @@ from datetime import datetime
 import face_recognition
 import cv2
 import numpy as np
-import os
+import os       
 
 #import images
 
 path = "C:\\Users\\pc\\Documents\\GitHub\\flair\\media\\student_img"
-
+#path = "C:\\Users\\pc\\Documents\\GitHub\\flair\\face_recog\\images\\actual"
 
 
 # list images
@@ -52,7 +52,7 @@ encodeListActual = findEncodings(images)
 print('encoding complete')
 # print(len(encodeListActual))
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(2)
 # find matches between encodings
 while True:
     success, img = cap.read()
