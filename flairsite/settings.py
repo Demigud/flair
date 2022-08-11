@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'django_filters',
 ]
 
 CRISPY_TEMPLATE_PACK = 'uni_form'
@@ -81,13 +82,15 @@ WSGI_APPLICATION = 'flairsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'flairDB',
-        'USER': 'flair',
-        'PASSWORD': 'mannyPactsyaw123',
-        'HOST': 'wildcats-flair-db.postgres.database.azure.com',
-        'PORT': '5432',
-        'OPTIONS': {"sslmode": "require"},
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+        #'ENGINE': 'django.db.backends.postgresql',
+        #'NAME': 'flairDB',
+        #'USER': 'flair',
+        #'PASSWORD': 'mannyPactsyaw123',
+        #'HOST': 'wildcats-flair-db.postgres.database.azure.com',
+        #'PORT': '5432',
+        #'OPTIONS': {"sslmode": "require"},
     }
 }
 

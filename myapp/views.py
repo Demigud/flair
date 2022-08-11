@@ -10,7 +10,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import user_passes_test
 from django.core.files.uploadedfile import SimpleUploadedFile
-
+from .filters import HealthFilter, UserFilter
 
 
 # Create your views here.
@@ -84,9 +84,12 @@ def dashboard(request):
 
 @user_passes_test(lambda user: user.is_staff, login_url='login')
 def submissions(request):
-    healthforms = Health.objects.all()
+    healthforms = Health.objects.all().order_by('-date_joined')
 
-    context = {'healthforms': healthforms}
+    Hfilter = HealthFilter(request.GET, queryset=healthforms)
+    healthforms = Hfilter.qs
+
+    context = {'healthforms': healthforms, 'Hfilter': Hfilter}
     return render(request, 'submissions.html', context)
 
 @user_passes_test(lambda user: user.is_staff, login_url='login')
@@ -101,9 +104,12 @@ def subdelete(request, id):
 
 @user_passes_test(lambda user: user.is_staff, login_url='login')
 def userlogs(request):
-    userforms = get_user_model().objects.all()
+    userforms = get_user_model().objects.all().order_by('-last_login')
 
-    context = {'userforms': userforms}
+    Ufilter = UserFilter(request.GET, queryset=userforms)
+    userforms = Ufilter.qs
+
+    context = {'userforms': userforms, 'Ufilter': Ufilter}
     return render(request, 'user-logs.html', context)
 
 @user_passes_test(lambda user: user.is_staff, login_url='login')

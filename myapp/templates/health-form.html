@@ -133,8 +133,8 @@
           </div>
         </header>
         <div class="health-form-container04" style="background-color: #ffd700;"></div>
-        <div class="health-form1" style="width: 100%; height: 1200px; display: flex; background:#800000;">
-        <div class="health-form-container05" style="width: 600px; height: 1150px; background: rgba(0,20,10,0.5); color: #fff; left: 30%; margin-top: 20px;">
+        <div class="health-form1" style="width: 100%; height: 1250px; display: flex; background:#800000;">
+        <div class="health-form-container05" style="width: 600px; height: 1200px; background: rgba(0,20,10,0.5); color: #fff; left: 30%; margin-top: 20px;">
           <h1>Cebu Institute of Technology University</h1>
           <span class="health-form-text01">
             Health and Travel History Disclosure Form
@@ -142,9 +142,9 @@
         <form enctype="multipart/form-data" method="POST" action="">
           {% csrf_token %}
           <div class="health-form-container06">
-            <span class="health-form-text02">Name</span>
+            <span class="health-form-text02">Name</span><br>
           </div>
-            {{form.name}}
+            {{form.name}} <span style="font-size: x-small;">Ex. Rizal, Jose P.</span>
           <div class="health-form-container07">
             <span class="health-form-text03">Email</span>
           </div>
@@ -152,31 +152,33 @@
             <div class="health-form-container09">
               <div class="health-form-container10"></div>
             </div>
-              {{form.email}}
+              {{form.email}} <span style="font-size: x-small;">Ex. JoseRizal@gmail.com</span>
           </div>
           <div class="health-form-container11">
             <div class="health-form-container12">
               <span class="health-form-text04">Phone number</span>
             </div>
           </div>
-             {{form.phonenumber}}
+             {{form.phonenumber}} <span style="font-size: x-small;">Ex. 09224564231</span>
           <div class="health-form-container13">
             <span class="health-form-text05">Current Address</span>
           </div>
           <div class="health-form-container14" style="margin-bottom: 20px;">
-            {{form.address}}
+            {{form.address}} <span style="font-size: x-small;">Ex. Luneta Park, Manila, Metro Manila</span>
           </div>
           <div class="health-form-container16">
           <span class="health-form-text06">Temperature</span>
           </div>
+          <span style="font-size: x-small;">(Enter Temperature in Celcius Ex. 37, 38.9, 36.6)</span>
           <div class="health-form-container17">
             {{form.temperature}}
           </div>
           <div class="health-form-container15">
-            <span class="health-form-text08">
+            <span class="health-form-text08" style="font-size:medium;">
               <span>Travel within the last 2 week? (outside</span>
               <br />
-              <span>cebu) if YES, please specify where.</span>
+              <span>cebu) if YES, please specify where.</span><br>
+              <span style="font-size: x-small;">(input NONE if you have not gone anywhere within the last two weeks)</span>
             </span>
           </div>
           <div class="health-form-container18">
@@ -187,14 +189,17 @@
               
             </div>
           </div>
+          <span style="font-size: x-small; margin-bottom: 20px">(Ex. cebu city, brgy.lahug, city hall & etc.)</span>
           <div style="flex: 0 0 auto; width:auto; display:flex; align-items:flex-start; justify-content:flex-start; margin-bottom: 20px">
               {{form.travelhistory}}
           </div>
           <span class="health-form-text14">
             <span>Vaccination Status</span>
           </span>
+          <br>
+          <span style="font-size: x-small; margin-bottom: 20px;">(Submit an image of your Vaccination Card)</span>
           <div class="health-form-container21">
-            <div class="health-form-container22" style="margin-bottom: 20px;">
+            <div class="health-form-container22" style="margin-bottom: 20px; margin-top: 20px">
               {{form.choise2}}
             </div>
             <div class="health-form-container23">
@@ -203,16 +208,18 @@
           </div>
           <span class="health-form-text18">
             <span>Are you currently experiencing any Covid-19 symptoms?</span>
-            <br />
-            <span>Link: <a href="https://www.who.int/health-topics/coronavirus#tab=tab_3">Symptoms</a></span>
+            <br/>
+            <span style="font-size: x-small;">Link: <a href="https://www.who.int/health-topics/coronavirus#tab=tab_3">Symptoms (if you're not experiencing any of the known symptoms then enter NONE)</a></span><br>
+            <span style="font-size: x-small; margin-bottom: 20px">(Ex. cough, sore throat, no taste & etc.)</span>
           </span>
           <div class="health-form-container24" style="margin-top: 20px;">
               {{form.choise3}}
           </div>
           <div style="flex: 0 0 auto; width:auto; display:flex; align-items:flex-start; justify-content:flex-start; margin-bottom: 5px; margin-top: 20px">
-            <span>Input Image</span>
+            <span>Your Photo Here</span>
             </div>
-          <div style="flex: 0 0 auto; width:auto; display:flex; align-items:flex-start; justify-content:flex-start; margin-bottom: 20px">
+            <span style="font-size: x-small; margin-bottom: 20px">(Submit a recent image of yourself here. Supported formats: JPG, JPEG, PNG)</span>
+          <div style="flex: 0 0 auto; width:auto; display:flex; align-items:flex-start; justify-content:flex-start;">
               {{form.img}}
             </div>
             <input class="health-form-button button" type="submit" value="Submit" style="margin-bottom:22px; color: #800000; background-color: gold;">

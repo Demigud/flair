@@ -144,6 +144,23 @@
         <div class="submissions-container4"></div>
         <div>
           <!--LIST-->
+          <!--Filter Search Submissions-->
+          <br>
+        <div class="row">
+	        <div class="col">
+		        <div class="card card-body">
+
+			        <form method="get">
+				          {{Hfilter.form}}
+
+		      <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+
+		</div>
+	</div>
+	
+</div>
+<br>
           <div class="card-body">
             <h4>Submission List</h4>
             <table class="table">
@@ -156,7 +173,6 @@
                         <th scope="col">Temperature</th>
                         <th scope="col">Choice 1</th>
                         <th scope="col">Travel History</th>
-                        <th scope="col">Choice 2</th>
                         <th scope="col">Choice 3</th>
                         <th scope="col">Date & Time</th>
                     </tr>
@@ -171,7 +187,6 @@
                         <td>{{ health.temperature }}</td>
                         <td>{{ health.choise1 }}</td>
                         <td>{{ health.travelhistory }}</td>
-                        <td>{{ health.choise2 }}</td>
                         <td>{{ health.choise3 }}</td>
                         <td>{{ health.date_joined }}</td>
                         <td>
